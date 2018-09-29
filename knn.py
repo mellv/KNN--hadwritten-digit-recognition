@@ -17,3 +17,13 @@ def data_exp(filename):
             return x
         y = np.fromstring(f.read(), dtype=np.uint8).reshape(data)
         return y
+    
+    
+def knn(train_images, train_labels, test_images, test_labels, k):
+    distances = []
+    result = []
+    count = 0
+
+    for i in test_images[0:10]:
+            for x in train_images[0:5000]:
+                euclidean_distance = np.sqrt(np.sum([(int(a) - int(b)) ** 2 for a, b in zip(i, x)]))
